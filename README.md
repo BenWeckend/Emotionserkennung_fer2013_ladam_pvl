@@ -1,5 +1,11 @@
 # Ladam_pvl
 
+Test Loss: 0.7174373269081116
+Test Accuracy: 0.7609543800354004
+Anzahl der Parameter im Modell:
+944487
+
+
 Zunächst importiert man die erforderlichen Bibliotheken:
 ``` python
 import pandas as pd
