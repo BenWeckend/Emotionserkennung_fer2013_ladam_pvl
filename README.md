@@ -45,12 +45,16 @@ Erweitern Datensatz durch verschieben der Bilder um einen Pixel um jeweil rechts
         augmented_labels = []
 
         for image, label in zip(images, labels):
+            # Vertical flip
+            flipped_image = np.flip(image, axis=0)
+            augmented_images.extend([image, flipped_image])
+            augmented_labels.extend([label, label])
+
+            # Horizontal shift
             shifted_left = shift(image[:, :, 0], [0, -1], cval=0)
             shifted_right = shift(image[:, :, 0], [0, 1], cval=0)
-
             shifted_left = shifted_left.reshape(48, 48, 1)
             shifted_right = shifted_right.reshape(48, 48, 1)
-
             augmented_images.extend([shifted_left, shifted_right])
             augmented_labels.extend([label, label])
 
@@ -131,9 +135,14 @@ Daten plotten:
 
         plt.tight_layout()
         plt.show()
-
+```
+Funktion zum zählen der Parameter und speichern des Models:
+``` python
     def count_parameters(self):
         return self.model.count_params()
+
+    def save_model(self, filename):
+        self.model.save(filename)
 
 ```
 Aufrufen von Funktionen + Rest:
@@ -156,4 +165,7 @@ print('Test Accuracy:', accuracy)
 emotion_classifier.plot_loss_accuracy(history)
 print("Anzahl der Parameter im Modell:")
 print(emotion_classifier.count_parameters())
+
+# Modell speichern
+emotion_classifier.save_model("model.h5")
 ```
