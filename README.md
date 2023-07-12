@@ -152,12 +152,11 @@ Funktion zum zählen der Parameter und speichern des Models:
 ```
 Aufrufen von Funktionen + Rest:
 ``` python
-# Hauptprogramm
+
 emotion_classifier = EmotionClassifier()
 data = emotion_classifier.read_data('fer2013.csv')
 images, labels = emotion_classifier.preprocess_data(data)
 
-# Daten erweitern
 augmented_images, augmented_labels = emotion_classifier.augment_data(images, labels)
 
 X_train, X_test, y_train, y_test = emotion_classifier.split_data(augmented_images, augmented_labels)
@@ -171,6 +170,6 @@ emotion_classifier.plot_loss_accuracy(history)
 print("Anzahl der Parameter im Modell:")
 print(emotion_classifier.count_parameters())
 
-# Modell speichern
+
 emotion_classifier.save_model("model.h5")
 ```
