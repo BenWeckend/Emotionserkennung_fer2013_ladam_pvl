@@ -1,9 +1,8 @@
 # Ladam_pvl
 
-Test Loss: 0.7174373269081116
-Test Accuracy: 0.7609543800354004
-Anzahl der Parameter im Modell:
-944487
+- Test Loss: 0.7174373269081116
+- Test Accuracy: 0.7609543800354004
+- Anzahl der Parameter im Modell: 944487
 
 
 Zunächst importiert man die erforderlichen Bibliotheken:
@@ -102,7 +101,7 @@ Modell erstellen:
 ```
 Modell trainiert:
 ``` python
-    def train_model(self, X_train, y_train, X_test, y_test, epochs=10, batch_size=32):
+    def train_model(self, X_train, y_train, X_test, y_test, epochs=5, batch_size=32):
         history = self.model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, validation_data=(X_test, y_test))
         return history
 ```
@@ -163,7 +162,7 @@ augmented_images, augmented_labels = emotion_classifier.augment_data(images, lab
 
 X_train, X_test, y_train, y_test = emotion_classifier.split_data(augmented_images, augmented_labels)
 
-history = emotion_classifier.train_model(X_train, y_train, X_test, y_test, epochs=50)
+history = emotion_classifier.train_model(X_train, y_train, X_test, y_test, epochs=5)
 loss, accuracy = emotion_classifier.evaluate_model(X_test, y_test)
 
 print('Test Loss:', loss)
