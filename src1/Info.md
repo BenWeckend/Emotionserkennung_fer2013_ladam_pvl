@@ -1,3 +1,5 @@
+Ich hatte lange zeit die Bilder falsch gespiegelt, weswegen der Lernverlauf bis zum fertigen Modell sehr schlecht war und duch das beheben des Problems kam es zu einer signifikanten Verbesserung.
+Dies kann man anhand der Graphen (in doc) gut sehen.
 
 main2.py: Epochen 10
          Batchgröße: 32
