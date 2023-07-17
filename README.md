@@ -1,5 +1,5 @@
 # Ladam_pvl
-Fertiges Programm: main6.py
+Fertiges Programm: main6.py in Ordner: src1
 
 - Test Loss: 0.7174373269081116
 - Test Accuracy: 0.7609543800354004
