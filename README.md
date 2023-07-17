@@ -43,7 +43,7 @@ Umwandeln der Daten in 2D pixel Werte:
         labels = label_encoder.fit_transform(labels)
         return images, labels
 ```
-Erweitern Datensatz durch verschieben der Bilder um einen Pixel um jeweil rechts und links:
+Erweiterung des Datensatzes durch spiegeln und Verschiebung der Bilder um einen Pixel um jeweil rechts und links:
 ``` python
     @staticmethod
     def augment_data(images, labels):
@@ -51,7 +51,7 @@ Erweitern Datensatz durch verschieben der Bilder um einen Pixel um jeweil rechts
         augmented_labels = []
 
         for image, label in zip(images, labels):
-            # Vertical flip
+            # Vertikal spiegeln
             flipped_image = np.flip(image, axis=0)
             augmented_images.extend([image, flipped_image])
             augmented_labels.extend([label, label])
