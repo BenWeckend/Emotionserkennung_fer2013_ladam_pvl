@@ -1,4 +1,4 @@
-# Ladam_pvl
+# Ladam_pvl / Ben Weckend MatrN: 67551
 Fertiges Programm: main6.py in Ordner: src1
 
 - Test Loss: 0.7174373269081116
