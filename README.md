@@ -1,10 +1,40 @@
 # Ladam_pvl / Ben Weckend MatrN: 67551
-Fertiges Programm: main6.py in Ordner: src1
+## **Fertiges Programm: main6.py in Ordner: src1**
 
 - Test Loss: 0.7174373269081116
 - Test Accuracy: 0.7609543800354004
 - Anzahl der Parameter im Modell: 944487
 
+***************
+### _Emotionserkennung mit CNN unter verwendung von fer2013_
+
+In meiner Implementierung habe ich ein Convolutional Neural Network (CNN) verwendet, um eine Emotionserkennung durchzuführen. Das Ziel ist es, Emotionen in Gesichtsbildern zu identifizieren, die in sieben Kategorien unterteilt sind: Wut, Ekel, Angst, Freude, Traurigkeit, Überraschung und Neutralität.
+
+Der Code ist in Python geschrieben und nutzt verschiedene Bibliotheken, die zuvor importiert wurden. Pandas wird für das Datenmanagement eingesetzt, während NumPy für die Datenmanipulation dient. Mithilfe von train_test_split und LabelEncoder aus der Scikit-learn-Bibliothek werden die Daten vorverarbeitet und aufgeteilt. Die TensorFlow-Bibliothek wird für den Aufbau des CNNs und die Modellierung verwendet.
+
+Die Codeimplementierung beginnt mit der Definition der Klasse EmotionClassifier, welche mehrere Methoden beinhaltet, die für die Datenverarbeitung, das Modelltraining und die Evaluierung benötigt werden.
+
+Zunächst gibt es eine statische Methode _**read_data()**_, welche die Daten aus einer CSV-Datei namens "fer2013.csv" mittels Pandas einliest und als DataFrame zurückgibt. Die CSV-Datei sollte die Gesichtsbilder und die entsprechenden Emotionen als Pixelwerte in Form von Zeichenketten enthalten.
+
+Die Methode _**preprocess_data()**_ wird eingesetz, um die gelesenen Daten zu verarbeiten. Hierbei werden die Pixelwerte und die Emotionslabels aus dem DataFrame extrahiert. Die Pixelwerte werden in ein 3D-Array konvertiert, um die Gesichtsbilder zu erstellen. Mithilfe des LabelEncoder werden die Emotionslabels in numerische Werte umgewandelt, um sie für das Training des Modells nutzen zu können.
+
+Anschließend kommt die Methode _**augment_data()**_ zum Einsatz, die die Daten erweitert. Dies wird erreicht, indem die Bilder vertikal gespiegelt und um einen Pixel nach links und rechts verschoben werden. Dadurch erhöht sich die Anzahl der Trainingsdaten, was wiederum die Generalisierungsfähigkeit des Modells verbessert.
+
+Die Methode _**split_data()**_ wird verwendet, um die Daten in Trainings- und Testsets aufzuteilen. Standardmäßig werden 20% der Daten für das Testset verwendet.
+
+Nachdem die Daten vorverarbeitet und aufgeteilt wurden, erfolgt die Definition der CNN-Architektur in der Methode _**build_model()**_. Das CNN besteht aus mehreren Convolutional-Layern, MaxPooling-Layern, Flatten-Layern und Dense-Layern. Batch-Normalization-Layer werden nach jeder Convolutional-Schicht hinzugefügt, um das Training zu stabilisieren. Die Ausgabeschicht verwendet die softmax-Aktivierungsfunktion, da es sich um ein Klassifikationsproblem handelt, bei dem eine der sieben Emotionen vorhergesagt werden soll.
+
+Die Methode _**train_model() wird aufgerufen, um das Modell mit den Trainingsdaten zu trainieren. Dabei können die Anzahl der Epochen und die Batch-Größe als Parameter angegeben werden.
+
+Das trainierte Modell wird anschließend mit den Testdaten in der Methode _**evaluate_model()**_ ausgewertet. Die Verlustfunktion (loss) und die Genauigkeit (accuracy) werden zurückgegeben und ausgegeben.
+
+Um die Leistung des Modells zu visualisieren, gibt es die Methode _**plot_loss_accuracy(history)**_, welche die Verlust- und Genauigkeitsverläufe während des Trainings plottet.
+
+Schließlich wird das Modell gespeichert, um es für zukünftige Vorhersagen oder Anwendungen zu nutzen.
+
+-------
+
+### _Hier ist der Code⬇️, welcher die geschriebene Beschreibung⬆️ mit Notizen erweitert_
 
 Zunächst importiert man die erforderlichen Bibliotheken:
 ``` python
